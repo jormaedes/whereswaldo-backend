@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node api.js",
-    "dev": "node --watch --env-file=.env api.js",
-    "build": "prisma generate && prisma migrate deploy",
-    "build:dev": "prisma generate && prisma migrate dev"
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "build:prisma": "prisma generate && prisma migrate deploy",
+    "build:prisma:dev": "prisma generate && prisma migrate dev"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,16 @@
   "bugs": {
     "url": "https://github.com/jormaedes/whereswaldo-backend/issues"
   },
-  "homepage": "https://github.com/jormaedes/whereswaldo-backend#readme"
+  "homepage": "https://github.com/jormaedes/whereswaldo-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
 }
