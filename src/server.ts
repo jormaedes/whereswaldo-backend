@@ -1,6 +1,5 @@
 import 'dotenv/config'
 import express from "express";
-import { prisma } from './lib/prisma.js';
 import router from "./routes/game.routes.js"
 import cors from 'cors';
 
