@@ -1,20 +1,13 @@
 import 'dotenv/config'
 import express from "express";
-import { prisma } from './lib/prisma';
+import { prisma } from './lib/prisma.js';
 
 const app = express();
 
 app.use(express.json());
 
 app.get('/', async (req, res) => {
-    const user = await prisma.winner.create({
-        data: {
-            name: 'Herodes',
-            scene: 0,
-            timeMs: 78,
-        },
-    })
-    res.json({user: user});
+    res.json({sucess: 'ok'})
 })
 
 const PORT = process.env.PORT ?? 3300;
