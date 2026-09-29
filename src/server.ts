@@ -1,14 +1,16 @@
 import 'dotenv/config'
 import express from "express";
 import { prisma } from './lib/prisma.js';
+import router from "./routes/game.routes.js"
+import cors from 'cors';
 
 const app = express();
 
-app.use(express.json());
 
-app.get('/', async (req, res) => {
-    res.json({sucess: 'ok'})
-})
+app.use(express.json());
+app.use(cors());
+
+app.use('/api', router);
 
 const PORT = process.env.PORT ?? 3300;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
